@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahaay | Intelligence Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="ellips"></div>
+
+    <div class="dashboard-wrapper">
+        <!-- Sidebar Navigation (Logout Removed) -->
+        <aside class="sidebar glass" id="sidebar">
+            <div class="logo-area">
+                <div class="logo-icon"><i class="ri-shield-flash-fill"></i></div>
+                <span>SAHAAY</span>
+            </div>
+            <nav class="nav-links">
+                <a href="profile.html"><i class="ri-dashboard-3-line"></i> Dashboard</a>
+                <a href="#" class="active"><i class="ri-history-line"></i> Activity Logs</a>
+                <a href="javascript:void(0)" onclick="openModal('userModal')"><i class="ri-user-settings-line"></i> User Management</a>
+                <a href="javascript:void(0)" onclick="openModal('permModal')"><i class="ri-lock-password-line"></i> Permissions</a>
+            </nav>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="workspace">
+            <header class="workspace-header">
+                <button class="menu-toggle" onclick="toggleSidebar()">
+                    <i class="ri-menu-2-line"></i>
+                </button>
+                <div class="search-bar">
+                    <i class="ri-search-2-line"></i>
+                    <input type="text" placeholder="Search neural strings...">
+                </div>
+                <div class="header-right">
+                    <button class="sync-btn" onclick="loadActivities()">
+                        <i class="ri-refresh-line"></i> <span>Sync Neural Data</span>
+                    </button>
+                    <div class="profile-pill">
+                        <span class="admin-tag">ADMIN</span>
+                        <div class="avatar">AD</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="scroll-area">
+                <div class="view-intro">
+                    <div class="title-stack">
+                        <h1>Activity Intelligence</h1>
+                        <p id="statusText">System live. Decryption protocol active.</p>
+                    </div>
+                    <div class="counter-card">
+                        <span id="logCount">0</span>
+                        <small>Segments Cached</small>
+                    </div>
+                </div>
+
+                <!-- Identity Filter -->
+                <div class="identity-section glass">
+                    <div class="section-tag"><i class="ri-fingerprint-line"></i> Identity Selection</div>
+                    <div id="userSelector" class="identity-grid">
+                        <!-- User tabs injected here -->
+                    </div>
+                </div>
+
+                <!-- Data Table -->
+                <div class="log-container glass">
+                    <table class="neural-table">
+                        <thead>
+                            <tr>
+                                <th>Entity</th>
+                                <th>Protocol</th>
+                                <th>Operation Details</th>
+                                <th>Timestamp</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logBody">
+                            <tr>
+                                <td colspan="4" class="loading-state">
+                                    <i class="ri-loader-4-line spin"></i>
+                                    <p>Ready for decryption...</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODAL: User Management -->
+    <div id="userModal" class="modal-overlay">
+        <div class="modal-content glass">
+            <div class="modal-header">
+                <h3><i class="ri-user-settings-line"></i> User Management</h3>
+                <button class="close-btn" onclick="closeModal('userModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Decrypted user registry access granted.</p>
+                <div class="modal-list" id="modalUserList"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: Permissions -->
+    <div id="permModal" class="modal-overlay">
+        <div class="modal-content glass">
+            <div class="modal-header">
+                <h3><i class="ri-lock-password-line"></i> Protocol Permissions</h3>
+                <button class="close-btn" onclick="closeModal('permModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="perm-item">
+                    <label>Neural Link Encryption</label>
+                    <div class="toggle active"></div>
+                </div>
+                <div class="perm-item">
+                    <label>Admin Override</label>
+                    <div class="toggle"></div>
+                </div>
+                <p class="warning-text">Changes require core restart.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
